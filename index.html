@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hugo Januário | Backend Developer & Infrastructure Enthusiast</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <meta name="description"
+        content="Portfolio de Hugo Januário, Desenvolvedor Backend focado em Go, Java e Infraestrutura de TI. Especialista em construir sistemas robustos e escaláveis.">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+
+<body class="dark-theme">
+    <div id="reading-progress" class="reading-progress"></div>
+    <!-- Boot Screen -->
+    <div id="boot-screen" class="boot-screen">
+        <div class="boot-content" id="boot-text"></div>
+    </div>
+
+    <div class="custom-cursor-dot" id="cursor-dot"></div>
+    <div class="custom-cursor-ring" id="cursor-ring">
+        <div class="left-bracket"></div>
+        <div class="right-bracket"></div>
+    </div>
+    <header id="header">
+        <nav class="container">
+            <div class="logo-wrapper">
+                <a href="#hero" class="logo">
+                    <span class="prefix">Hugo</span><span class="logo-dot">.</span><span class="suffix">Januário</span>
+                </a>
+                <div class="logo-socials">
+                    <a href="https://github.com/hugaojanuario" target="_blank" aria-label="GitHub"><i
+                            class="devicon-github-original"></i></a>
+                    <a href="https://www.linkedin.com/in/hugo-janu%C3%A1rio/" target="_blank" aria-label="LinkedIn"><i
+                            class="devicon-linkedin-plain colored"></i></a>
+                    <a href="https://www.youtube.com/@hugaojanuarioo" target="_blank" aria-label="YouTube"
+                        class="youtube-icon">
+                        <svg viewBox="0 0 1024 1024" width="22" height="22">
+                            <path
+                                d="M941.3 296.1a112.3 112.3 0 0 0-79.2-79.3C792.2 198 512 198 512 198s-280.2 0-350.1 18.7A112.12 112.12 0 0 0 82.7 296C64 366 64 512 64 512s0 146 18.7 215.9c10.3 38.6 40.7 69 79.2 79.3C231.8 826 512 826 512 826s280.2 0 350.1-18.8c38.6-10.3 68.9-40.7 79.2-79.3C960 658 960 512 960 512s0-146-18.7-215.9zM423 646V378l232 133-232 135z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about" data-i18n="nav_about">Sobre</a></li>
+                <li><a href="#experience" data-i18n="nav_experience">Experiência</a></li>
+                <li><a href="#projects" data-i18n="nav_projects">Projetos</a></li>
+                <li><a href="#skills" data-i18n="nav_skills">Habilidades</a></li>
+                <li><a href="Files/Curriculo-Hugo-Januario.pdf" target="_blank" data-i18n="nav_resume">Currículo</a>
+                </li>
+                <li><a href="#contact" class="btn-primary" data-i18n="nav_contact">Contato</a></li>
+                <li class="theme-switcher">
+                    <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme">
+                        <div id="theme-icon-container">
+                            <!-- SVG will be injected here -->
+                        </div>
+                    </button>
+                </li>
+                <li class="lang-switcher">
+                    <button id="lang-pt" class="lang-btn active">PT</button>
+                    <span class="lang-divider">|</span>
+                    <button id="lang-en" class="lang-btn">EN</button>
+                </li>
+            </ul>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <span class="badge" data-i18n="hero_badge">Disponível para novos desafios</span>
+                    <h1 id="hero-name">Hugo Januário</h1>
+                    <h2 data-i18n="hero_role">Desenvolvedor Backend <span class="highlight">&</span> Entusiasta de
+                        Infraestrutura</h2>
+                    <p data-i18n="hero_desc">Especialista em Go e Java, conectando código de alta performance com
+                        arquiteturas de produção
+                        resilientes.</p>
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn-primary" data-i18n="hero_btn_projects">Ver Projetos</a>
+                        <a href="#contact" class="btn-secondary" data-i18n="hero_btn_contact">Contato</a>
+                    </div>
+                </div>
+                <!-- Optional: Visual element like a terminal or 3D graphic -->
+                <div class="hero-visual">
+                    <div class="terminal-mock">
+                        <div class="terminal-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                            <span class="terminal-title">bash — hugo@systems</span>
+                        </div>
+                        <div class="terminal-body" id="interactive-terminal">
+                            <div id="terminal-history">
+                                <p><span class="prompt">guest@hugo-systems:~$</span> <span class="cmd-text">help</span>
+                                </p>
+                                <p class="terminal-output">Digite um comando válido para interagir com o terminal.</p>
+                                <p class="terminal-output">Comandos: <span class="highlight">about, skills, clear, contact, sudo, neofetch, ls, get resume, curl -O resume.pdf, matrix</span></p>
+                            </div>
+                            <div class="terminal-input-line">
+                                <span class="prompt">guest@hugo-systems:~$</span>
+                                <input type="text" id="terminal-input" autocomplete="off" spellcheck="false">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">01.</span>
+                    <h2 class="section-title" data-i18n="about_title">Sobre Mim</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p data-i18n="about_p1">Olá! Meu nome é Hugo e sou apaixonado por construir sistemas eficientes
+                            que rodam de forma
+                            estável "de ponta a ponta". Minha jornada na tecnologia começou na infraestrutura de TI,
+                            onde aprendi a fundo sobre redes, servidores Linux e o modelo OSI.</p>
+                        <p data-i18n="about_p2">Hoje, estou cursando Sistemas de Informação e focando minha carreira no
+                            <strong>Desenvolvimento Backend</strong>. Acredito que meu diferencial é entender não apenas
+                            como o código funciona, mas como ele se comporta dentro de um container, em uma rede
+                            complexa ou sob carga em produção.
+                        </p>
+                        <p data-i18n="about_p3">Atualmente trabalho na <strong>Siplan</strong> como Técnico de
+                            Implantação de Software, onde
+                            aplico meus conhecimentos em automação e suporte a ambientes de produção.</p>
+                    </div>
+                    <div class="about-image">
+                        <div class="gopher-wrapper">
+                            <svg class="gopher" viewBox="0 0 100 120" xmlns="http://www.w3.org/2000/svg">
+                                <!-- White Sticker Outline -->
+                                <path d="M10,40 Q10,12 50,12 Q90,12 90,40 L90,103 Q90,118 50,118 Q10,118 10,103 Z"
+                                    fill="white" />
+                                <!-- Main Body -->
+                                <path d="M13,42 Q13,15 50,15 Q87,15 87,42 L87,100 Q87,115 50,115 Q13,115 13,100 Z"
+                                    fill="#7FD5EA" stroke="#000" stroke-width="1.8" />
+                                <!-- Ears (Official Side-ish placement) -->
+                                <circle cx="15" cy="45" r="7" fill="#7FD5EA" stroke="#000" stroke-width="1.8" />
+                                <circle cx="15" cy="45" r="3" fill="#000" />
+                                <circle cx="85" cy="45" r="7" fill="#7FD5EA" stroke="#000" stroke-width="1.8" />
+                                <circle cx="85" cy="45" r="3" fill="#000" />
+
+                                <!-- Eyes (Huge and Expressive) -->
+                                <circle cx="35" cy="48" r="17" fill="white" stroke="#000" stroke-width="1.8" />
+                                <circle cx="65" cy="48" r="17" fill="white" stroke="#000" stroke-width="1.8" />
+
+                                <!-- Pupils (animated and wrapped for simultaneous scaling) -->
+                                <g class="pupil-container">
+                                    <circle class="pupil" cx="35" cy="48" r="5" fill="#000" />
+                                </g>
+                                <g class="pupil-container">
+                                    <circle class="pupil" cx="65" cy="48" r="5" fill="#000" />
+                                </g>
+
+                                    <!-- Muzzle -->
+                                    <path d="M38,72 Q50,62 62,72 Q62,82 50,82 Q38,82 38,72 Z" fill="#F3D7B5" stroke="#000"
+                                        stroke-width="1.5" />
+                                    
+                                    <!-- Nose -->
+                                    <ellipse cx="50" cy="69" rx="5" ry="4" fill="#000" />
+
+                                    <!-- Teeth -->
+                                    <g class="gopher-teeth">
+                                        <rect x="46" y="77" width="4" height="6" rx="1" fill="white" stroke="#000"
+                                            stroke-width="1.2" />
+                                        <rect x="50" y="77" width="4" height="6" rx="1" fill="white" stroke="#000"
+                                            stroke-width="1.2" />
+                                    </g>
+                            </svg>
+                        </div>
+                        <div class="image-wrapper">
+                            <img src="Image/Hugo.png" alt="Hugo Januário" class="profile-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="experience">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">02.</span>
+                    <h2 class="section-title" data-i18n="exp_title">Experiência Profissional</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 data-i18n="exp_role1">Técnico de Implantação de Software</h3>
+                            <p class="timeline-org" data-i18n="exp_date1">Siplan | Ago 2025 - Presente</p>
+                            <ul>
+                                <li data-i18n="exp_desc1_1">Implantação de sistemas em ambientes de produção.</li>
+                                <li data-i18n="exp_desc1_2">Suporte técnico especializado e automação de processos.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 data-i18n="exp_role2">Técnico de Helpdesk Júnior</h3>
+                            <p class="timeline-org" data-i18n="exp_date2">ISP | Ago 2024 - Jul 2025</p>
+                            <ul>
+                                <li data-i18n="exp_desc2_1">Gestão de infraestrutura de TI e administração de servidores
+                                    Linux.</li>
+                                <li data-i18n="exp_desc2_2">Troubleshooting avançado de redes (TCP/IP, DNS, DHCP).</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h3 data-i18n="exp_role3">Estagiário de Helpdesk TI</h3>
+                            <p class="timeline-org" data-i18n="exp_date3">TI Helpdesk | Abr 2023 - Ago 2024</p>
+                            <ul>
+                                <li data-i18n="exp_desc3_1">Suporte técnico de nível 1 e 2 para usuários internos.</li>
+                                <li data-i18n="exp_desc3_2">Manutenção preventiva e corretiva de hardware e software.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">03.</span>
+                    <h2 class="section-title" data-i18n="proj_title">Projetos em Destaque</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="carousel-container">
+                    <button class="carousel-btn prev" id="prev-project" aria-label="Anterior">←</button>
+                    <div class="carousel-viewport">
+                        <div class="carousel-track" id="github-repos">
+                            <!-- Skeleton Loader for GitHub Fetch -->
+                            <div class="project-card skeleton"
+                                style="min-width: 100%; display: flex; align-items: center; justify-content: center; min-height: 250px;">
+                                <div class="project-content" style="text-align: center;">
+                                    <h3>Carregando Repositórios...</h3>
+                                    <p style="color: var(--text-secondary);">Conectando com a API do GitHub</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-btn next" id="next-project" aria-label="Próximo">→</button>
+                </div>
+                <!-- Carousel Pagination Dots -->
+                <div class="carousel-dots" id="carousel-dots"></div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-number">04.</span>
+                    <h2 class="section-title" data-i18n="skills_title">Habilidades Técnicas</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="skills-wrapper">
+                    <div class="skills-category">
+                        <h3 data-i18n="skills_cat1">Backend</h3>
+                        <div class="skills-list">
+                            <a href="https://go.dev/" target="_blank" rel="noopener noreferrer" class="skill-tag"><i
+                                    class="devicon-go-original-wordmark colored"></i> Go
+                                (Golang)</a>
+                            <a href="https://spring.io/" target="_blank" rel="noopener noreferrer" class="skill-tag"><i
+                                    class="devicon-java-plain colored"></i> Java / Spring</a>
+                            <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer"
+                                class="skill-tag"><i class="devicon-python-plain colored"></i> Python</a>
+                            <a href="https://restfulapi.net/" target="_blank" rel="noopener noreferrer"
+                                class="skill-tag"><i class="fas fa-network-wired"></i> <span data-i18n="skills_api">REST
+                                    APIs</span></a>
+                        </div>
+                    </div>
+                    <div class="skills-category">
+                        <h3 data-i18n="skills_cat2">Infra & DevOps</h3>
+                        <div class="skills-list">
+                            <a href="https://www.linux.org/" target="_blank" rel="noopener noreferrer"
+                                class="skill-tag"><i class="devicon-linux-plain"></i> Linux</a>
+                            <a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer"
+                                class="skill-tag"><i class="devicon-docker-plain colored"></i> Docker & K8s</a>
+                            <a href="https://pt.wikipedia.org/wiki/Arquitetura_TCP/IP" target="_blank"
+                                rel="noopener noreferrer" class="skill-tag"><i class="fas fa-server"></i> <span
+                                    data-i18n="skills_net">Redes (TCP/IP)</span></a>
+                            <a href="https://www.gnu.org/software/bash/" target="_blank" rel="noopener noreferrer"
+                                class="skill-tag"><i class="devicon-bash-plain"></i> Shell Scripting</a>
+                        </div>
+                    </div>
+                    <div class="skills-category">
+                        <h3 data-i18n="skills_cat3">Banco de Dados</h3>
+                        <div class="skills-list">
+                            <a href="https://www.postgresql.org/" target="_blank" rel="noopener noreferrer"
+                                class="skill-tag"><i class="devicon-postgresql-plain colored"></i> PostgreSQL</a>
+                            <a href="https://www.mongodb.com/" target="_blank" rel="noopener noreferrer"
+                                class="skill-tag"><i class="devicon-mongodb-plain colored"></i> MongoDB</a>
+                            <a href="https://redis.io/" target="_blank" rel="noopener noreferrer" class="skill-tag"><i
+                                    class="devicon-redis-plain colored"></i> Redis</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <div class="contact-box">
+                    <h2 data-i18n="contact_title">Me mande um "Hello World"</h2>
+                    <p data-i18n="contact_desc">Estou sempre aberto a novas oportunidades ou simplesmente para conversar
+                        sobre tecnologia e
+                        sistemas.</p>
+                    <div class="contact-actions">
+                        <a href="mailto:devhugojanuario@gmail.com" class="btn-primary"
+                            data-i18n="contact_btn_email">Enviar Email</a>
+                        <a href="#" id="download-vcard" class="btn-secondary"><i class="fas fa-address-card"></i> Salvar
+                            Contato</a>
+                        <a href="https://github.com/hugaojanuario" target="_blank" class="btn-secondary"><i
+                                class="devicon-github-original"></i> GitHub</a>
+                        <a href="https://www.linkedin.com/in/hugo-janu%C3%A1rio/" target="_blank"
+                            class="btn-secondary"><i class="devicon-linkedin-plain colored"></i> LinkedIn</a>
+                    </div>
+
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name" data-i18n="contact_form_name">Nome</label>
+                                <input type="text" id="name" name="name" required placeholder="Seu nome">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" data-i18n="contact_form_email">Email</label>
+                                <input type="email" id="email" name="email" required placeholder="seu@email.com">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-i18n="contact_form_msg">Mensagem</label>
+                            <textarea id="message" name="message" required placeholder="Olá Hugo, gostaria de conversar sobre..."></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full">
+                            <span data-i18n="contact_form_btn">Enviar Mensagem</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                        <div id="form-status" class="form-status"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer" class="footer">
+        <div class="container footer-content">
+            <p class="copyright">&copy; 2026 Hugo Januário.</p>
+            <div class="infra-status" id="infra-status">
+                <span class="status-dot online"></span>
+                <span class="status-text">System Status: <span class="highlight">Operational</span></span>
+                <span class="status-divider">|</span>
+                <span class="status-uptime">Uptime: <span id="uptime-value">99.9%</span></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Details Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="close-modal">×</button>
+            <div class="modal-header">
+                <h2 id="modal-title">Project Name</h2>
+                <div class="modal-tabs">
+                    <button class="tab-btn active" data-tab="readme">README.md</button>
+                    <button class="tab-btn" data-tab="files">Arquivos</button>
+                </div>
+            </div>
+            <div class="modal-body" data-lenis-prevent>
+                <div id="readme-tab" class="tab-content active">
+                    <div id="readme-content" class="markdown-body">
+                        <div class="loader-container">
+                            <div class="loader"></div>
+                            <p>Buscando README...</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="files-tab" class="tab-content">
+                    <div id="files-content" class="file-list">
+                        <div class="loader-container">
+                            <div class="loader"></div>
+                            <p>Mapeando estrutura de arquivos...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" id="modal-download-link" class="modal-btn btn-download" download>
+                    <i class="fas fa-file-archive"></i> Baixar ZIP
+                </a>
+                <a id="modal-github-link" href="#" target="_blank" class="btn-primary">Ver no GitHub <i
+                        class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to Top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <script src="script.js"></script>
+</body>
+
+</html>
