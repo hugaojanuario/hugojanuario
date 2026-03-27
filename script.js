@@ -923,6 +923,9 @@ END:VCARD`;
     const contactForm = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
     
+    // Configuração do Web3Forms (Peça sua chave em https://web3forms.com/)
+    const WEB3FORMS_ACCESS_KEY = "1418d683-9d3a-4476-ab3e-e11378cc2a11"; 
+
     if (contactForm && formStatus) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -932,21 +935,44 @@ END:VCARD`;
             
             btn.disabled = true;
             btnText.innerText = 'Enviando...';
+
+            const lang = localStorage.getItem('lang') || 'pt';
+            const formData = new FormData(contactForm);
             
-            // Simulate API call
-            setTimeout(() => {
-                const lang = localStorage.getItem('lang') || 'pt';
-                formStatus.innerText = translations[lang].contact_form_success;
-                formStatus.className = 'form-status success';
-                contactForm.reset();
+            // Adicionar a chave de acesso e o assunto
+            formData.append("access_key", WEB3FORMS_ACCESS_KEY);
+            formData.append("subject", `Novo contato de ${formData.get('name')} | Portfólio`);
+            formData.append("from_name", "Portfólio Hugo Januário");
+
+            fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
+            })
+            .then(async (response) => {
+                const json = await response.json();
+                if (response.status === 200) {
+                    formStatus.innerText = translations[lang].contact_form_success;
+                    formStatus.className = 'form-status success';
+                    contactForm.reset();
+                } else {
+                    console.log(response);
+                    formStatus.innerText = json.message || translations[lang].contact_form_error;
+                    formStatus.className = 'form-status error';
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                formStatus.innerText = translations[lang].contact_form_error;
+                formStatus.className = 'form-status error';
+            })
+            .finally(() => {
                 btn.disabled = false;
                 btnText.innerText = originalText;
-                
                 setTimeout(() => {
                     formStatus.innerText = '';
                     formStatus.className = 'form-status';
                 }, 5000);
-            }, 1500);
+            });
         });
     }
 
